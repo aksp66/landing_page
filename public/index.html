@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sergio WEKA — Comédien voix-off professionnel</title>
+<meta name="description" content="Sergio WEKA, comédien voix-off professionnel. Voix humaine, authentique, chaude et grainée pour vos publicités, narrations, projets institutionnels et e-learning. Devis sous 24h.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ============================================ -->
+<!-- SPRITE D'ICONES (style Feather, vectorielles) -->
+<!-- ============================================ -->
+<svg style="display:none" aria-hidden="true">
+  <defs>
+    <symbol id="icon-menu" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></symbol>
+    <symbol id="icon-x" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+    <symbol id="icon-play" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></symbol>
+    <symbol id="icon-pause" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></symbol>
+    <symbol id="icon-mic" viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></symbol>
+    <symbol id="icon-speaker" viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></symbol>
+    <symbol id="icon-book" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></symbol>
+    <symbol id="icon-briefcase" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></symbol>
+    <symbol id="icon-monitor" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></symbol>
+    <symbol id="icon-mail" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22 6 12 13 2 6"/></symbol>
+    <symbol id="icon-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+    <symbol id="icon-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></symbol>
+    <symbol id="icon-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
+    <symbol id="icon-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
+    <symbol id="icon-file" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></symbol>
+    <symbol id="icon-pen" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></symbol>
+    <symbol id="icon-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></symbol>
+    <symbol id="icon-film" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"/><line x1="7" y1="2" x2="7" y2="22"/><line x1="17" y1="2" x2="17" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="2" y1="7" x2="7" y2="7"/><line x1="2" y1="17" x2="7" y2="17"/><line x1="17" y1="17" x2="22" y2="17"/><line x1="17" y1="7" x2="22" y2="7"/></symbol>
+    <symbol id="icon-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></symbol>
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></symbol>
+    <symbol id="icon-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></symbol>
+    <symbol id="icon-instagram" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></symbol>
+    <symbol id="icon-music" viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></symbol>
+    <symbol id="icon-alert" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></symbol>
+  </defs>
+</svg>
+
+<!-- ============================================ -->
+<!-- NAVIGATION -->
+<!-- ============================================ -->
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="#top" class="brand">Sergio <span>WEKA</span></a>
+    <nav class="nav" id="primary-nav">
+      <a href="#demos">Démos</a>
+      <a href="#videos">Vidéos</a>
+      <a href="#apropos">À propos</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#contact" class="btn btn-primary btn-sm nav-cta">Devis</a>
+    <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Ouvrir le menu">
+      <svg class="icon"><use href="#icon-menu"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============================================ -->
+  <!-- HERO -->
+  <!-- ============================================ -->
+  <section class="hero" id="hero">
+    <div class="wrap hero-inner">
+      <div class="hero-text">
+        <p class="eyebrow">Comédien voix-off professionnel</p>
+        <h1>Une voix qui donne vie à votre message.</h1>
+        <p class="hero-lede">
+          J'accompagne marques, institutions et entreprises avec des voix-off
+          premium&nbsp;: une voix humaine, authentique, chaude et grainée —
+          celle qu'on écoute jusqu'au bout.
+        </p>
+        <div class="hero-cta">
+          <a href="#demos" class="btn btn-primary">
+            <svg class="icon"><use href="#icon-play"/></svg>
+            Écouter mes démos
+          </a>
+          <a href="#contact" class="btn btn-outline">Demander un devis</a>
+        </div>
+        <p class="hero-trust">
+          Home-studio &amp; studio de post-production · Direction à distance via
+          Source-Connect · Livraison en 24h
+        </p>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <!-- Signature : forme d'onde vocale statique, représente la voix elle-même -->
+        <svg class="waveform" viewBox="0 0 220 140" preserveAspectRatio="xMidYMid meet">
+          <g class="waveform-bars">
+            <rect x="0"   y="58" width="6" height="24" rx="3"/>
+            <rect x="12"  y="46" width="6" height="48" rx="3"/>
+            <rect x="24"  y="64" width="6" height="12" rx="3"/>
+            <rect x="36"  y="38" width="6" height="64" rx="3"/>
+            <rect x="48"  y="52" width="6" height="36" rx="3"/>
+            <rect x="60"  y="20" width="6" height="100" rx="3"/>
+            <rect x="72"  y="44" width="6" height="52" rx="3"/>
+            <rect x="84"  y="58" width="6" height="24" rx="3"/>
+            <rect x="96"  y="30" width="6" height="80" rx="3"/>
+            <rect x="108" y="50" width="6" height="40" rx="3"/>
+            <rect x="120" y="14" width="6" height="112" rx="3"/>
+            <rect x="132" y="46" width="6" height="48" rx="3"/>
+            <rect x="144" y="60" width="6" height="20" rx="3"/>
+            <rect x="156" y="34" width="6" height="72" rx="3"/>
+            <rect x="168" y="54" width="6" height="32" rx="3"/>
+            <rect x="180" y="24" width="6" height="92" rx="3"/>
+            <rect x="192" y="48" width="6" height="44" rx="3"/>
+            <rect x="204" y="62" width="6" height="16" rx="3"/>
+            <rect x="214" y="56" width="6" height="28" rx="3"/>
+          </g>
+        </svg>
+        <div class="hero-photo">
+          <img src="assets/images/sergio-weka-portrait.png" alt="Sergio WEKA, comédien voix-off professionnel" width="447" height="559">
+        </div>
+      </div>
+    </div>
+
+    <div class="trust-strip">
+      <div class="wrap">
+        <p>Home-studio équipé · Studio de post-production · Sessions dirigées à distance</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- DÉMOS AUDIO -->
+  <!-- ============================================ -->
+  <section class="section" id="demos">
+    <div class="wrap">
+      <p class="eyebrow">Démos audio</p>
+      <h2>Une voix pour chaque message</h2>
+
+      <div class="tabs" role="tablist" aria-label="Filtrer les démos par catégorie">
+        <button class="tab is-active" role="tab" aria-selected="true" data-filter="all">Toutes</button>
+        <button class="tab" role="tab" aria-selected="false" data-filter="campagne">Publicité</button>
+        <button class="tab" role="tab" aria-selected="false" data-filter="narration">Narration</button>
+        <button class="tab" role="tab" aria-selected="false" data-filter="elearning">E-learning</button>
+      </div>
+
+      <ul class="player-list" id="player-list">
+
+        <li class="player" data-category="campagne">
+          <button class="player-toggle" type="button" aria-label="Écouter la démo">
+            <svg class="icon icon-play"><use href="#icon-play"/></svg>
+            <svg class="icon icon-pause" hidden><use href="#icon-pause"/></svg>
+          </button>
+          <div class="player-body">
+            <p class="player-title">Spot publicitaire</p>
+            <p class="player-tone">Ton dynamique, grave, hardcore</p>
+            <div class="player-track">
+              <div class="player-progress"><div class="player-progress-fill"></div></div>
+              <span class="player-time">0:00 / 0:00</span>
+            </div>
+          </div>
+          <audio preload="none" src="assets/audio/demo-campagne-radio.mp3"></audio>
+        </li>
+
+        <li class="player" data-category="narration">
+          <button class="player-toggle" type="button" aria-label="Écouter la démo">
+            <svg class="icon icon-play"><use href="#icon-play"/></svg>
+            <svg class="icon icon-pause" hidden><use href="#icon-pause"/></svg>
+          </button>
+          <div class="player-body">
+            <p class="player-title">Narration documentaire</p>
+            <p class="player-tone">Ton dramatique et informatif</p>
+            <div class="player-track">
+              <div class="player-progress"><div class="player-progress-fill"></div></div>
+              <span class="player-time">0:00 / 0:00</span>
+            </div>
+          </div>
+          <audio preload="none" src="assets/audio/demo-narration-documentaire.mp3"></audio>
+        </li>
+
+        <li class="player" data-category="elearning">
+          <button class="player-toggle" type="button" aria-label="Écouter la démo">
+            <svg class="icon icon-play"><use href="#icon-play"/></svg>
+            <svg class="icon icon-pause" hidden><use href="#icon-pause"/></svg>
+          </button>
+          <div class="player-body">
+            <p class="player-title">E-learning — TwinPouch Tech</p>
+            <p class="player-tone">Ton informatif</p>
+            <div class="player-track">
+              <div class="player-progress"><div class="player-progress-fill"></div></div>
+              <span class="player-time">0:00 / 0:00</span>
+            </div>
+          </div>
+          <audio preload="none" src="assets/audio/demo-elearning.mp3"></audio>
+        </li>
+
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- VIDÉOS -->
+  <!-- ============================================ -->
+  <section class="section section-alt" id="videos">
+    <div class="wrap">
+      <p class="eyebrow">Vidéos</p>
+      <h2>Extraits de projets réalisés</h2>
+      <p class="section-lede">Quelques exemples de collaborations avec des marques et institutions.</p>
+
+      <div class="tabs" role="tablist" aria-label="Filtrer les vidéos par catégorie">
+        <button class="tab is-active" role="tab" aria-selected="true" data-filter="all">Toutes</button>
+        <button class="tab" role="tab" aria-selected="false" data-filter="institutionnel">Institutionnel</button>
+        <button class="tab" role="tab" aria-selected="false" data-filter="campagne">Publicité</button>
+      </div>
+
+      <div class="video-grid">
+        <a class="video-card" data-category="institutionnel" href="assets/video/institutionnel/institutionnel-1.mp4" data-video>
+          <span class="video-thumb">
+            <img src="assets/images/video-thumbs/institutionnel-1.jpg" alt="">
+            <span class="video-play"><svg class="icon"><use href="#icon-play"/></svg></span>
+          </span>
+          <span class="video-meta">
+            <span class="video-title">Spot institutionnel — SUNU Assurance</span>
+            <span class="video-tag">Institutionnel · Ton rassuré, souriant, convaincant, informatif</span>
+          </span>
+        </a>
+        <a class="video-card" data-category="institutionnel" href="assets/video/institutionnel/institutionnel-2.mp4" data-video>
+          <span class="video-thumb">
+            <img src="assets/images/video-thumbs/institutionnel-2.jpg" alt="">
+            <span class="video-play"><svg class="icon"><use href="#icon-play"/></svg></span>
+          </span>
+          <span class="video-meta">
+            <span class="video-title">Spot institutionnel — Port Autonome de Cotonou</span>
+            <span class="video-tag">Institutionnel · Ton autoritaire, rassuré</span>
+          </span>
+        </a>
+        <a class="video-card" data-category="institutionnel" href="assets/video/institutionnel/institutionnel-3.mp4" data-video>
+          <span class="video-thumb">
+            <img src="assets/images/video-thumbs/institutionnel-3.jpg" alt="">
+            <span class="video-play"><svg class="icon"><use href="#icon-play"/></svg></span>
+          </span>
+          <span class="video-meta">
+            <span class="video-title">Publicité institutionnelle — SUNUBANK Sénégal</span>
+            <span class="video-tag">Institutionnel · Ton chaleureux et intime</span>
+          </span>
+        </a>
+        <a class="video-card" data-category="institutionnel" href="assets/video/institutionnel/institutionnel-4.mp4" data-video>
+          <span class="video-thumb">
+            <img src="assets/images/video-thumbs/institutionnel-4.jpg" alt="">
+            <span class="video-play"><svg class="icon"><use href="#icon-play"/></svg></span>
+          </span>
+          <span class="video-meta">
+            <span class="video-title">Spot institutionnel</span>
+            <span class="video-tag">Institutionnel · Ton autoritaire, informatif, convaincant</span>
+          </span>
+        </a>
+        <a class="video-card" data-category="campagne" href="assets/video/campagnes/campagne-1.mp4" data-video>
+          <span class="video-thumb">
+            <img src="assets/images/video-thumbs/campagne-1.jpg" alt="">
+            <span class="video-play"><svg class="icon"><use href="#icon-play"/></svg></span>
+          </span>
+          <span class="video-meta">
+            <span class="video-title">Campagne publicitaire</span>
+            <span class="video-tag">Publicité · Titre à confirmer</span>
+          </span>
+        </a>
+        <a class="video-card" data-category="campagne" href="assets/video/campagnes/campagne-2.mp4" data-video>
+          <span class="video-thumb">
+            <img src="assets/images/video-thumbs/campagne-2.jpg" alt="">
+            <span class="video-play"><svg class="icon"><use href="#icon-play"/></svg></span>
+          </span>
+          <span class="video-meta">
+            <span class="video-title">Démo mix — Réseau Télécom Yas</span>
+            <span class="video-tag">Publicité · Ton dynamique, souriant</span>
+          </span>
+        </a>
+        <a class="video-card" data-category="campagne" href="assets/video/campagnes/campagne-3.mp4" data-video>
+          <span class="video-thumb">
+            <img src="assets/images/video-thumbs/campagne-3.jpg" alt="">
+            <span class="video-play"><svg class="icon"><use href="#icon-play"/></svg></span>
+          </span>
+          <span class="video-meta">
+            <span class="video-title">Publicité — Site web Soluafrica</span>
+            <span class="video-tag">Publicité · Ton souriant, informatif</span>
+          </span>
+        </a>
+        <a class="video-card" data-category="campagne" href="assets/video/campagnes/campagne-4.mp4" data-video>
+          <span class="video-thumb">
+            <img src="assets/images/video-thumbs/campagne-4.jpg" alt="">
+            <span class="video-play"><svg class="icon"><use href="#icon-play"/></svg></span>
+          </span>
+          <span class="video-meta">
+            <span class="video-title">Publicité — Marque Vlisoco</span>
+            <span class="video-tag">Publicité · Élégant, audacieux, luxueux</span>
+          </span>
+        </a>
+      </div>
+      <button type="button" class="btn-more" id="video-show-more" hidden>Voir plus de vidéos</button>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- À PROPOS -->
+  <!-- ============================================ -->
+  <section class="section" id="apropos">
+    <div class="wrap about-grid">
+      <div class="about-photo">
+        <img src="assets/images/sergio-weka-portrait.png" alt="Portrait de Sergio WEKA" width="447" height="559">
+      </div>
+      <div class="about-content">
+        <p class="eyebrow">À propos</p>
+        <h2>Sergio WEKA</h2>
+        <p class="about-role">Comédien voix-off professionnel</p>
+        <p class="about-bio">
+          J'accompagne marques, institutions et entreprises en réalisant des
+          voix-off premium qui donnent vie à leur message. Vous êtes à la
+          recherche d'une voix-off humaine, authentique, chaude et grainée&nbsp;?
+          Bonjour&nbsp;!
+        </p>
+        <p class="about-bio">
+          Je travaille depuis mon home-studio, et évidemment en studio de
+          post-production. Je peux aussi enregistrer à distance via
+          <strong>Source-Connect</strong> si vous souhaitez diriger vous-même
+          la session d'enregistrement.
+        </p>
+        <div class="badges">
+          <div class="badge">
+            <svg class="icon"><use href="#icon-mic"/></svg>
+            <span>Home-studio &amp; studio pro</span>
+          </div>
+          <div class="badge">
+            <svg class="icon"><use href="#icon-clock"/></svg>
+            <span>Livraison 24h</span>
+          </div>
+          <div class="badge">
+            <svg class="icon"><use href="#icon-globe"/></svg>
+            <span>Sessions à distance via Source-Connect</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SERVICES -->
+  <!-- ============================================ -->
+  <section class="section section-dark" id="services">
+    <div class="wrap">
+      <p class="eyebrow eyebrow-on-dark">Services</p>
+      <h2 class="on-dark">Ce que je propose</h2>
+
+      <div class="service-grid">
+        <div class="service-card">
+          <svg class="icon icon-lg"><use href="#icon-speaker"/></svg>
+          <h3>Publicité</h3>
+          <p>Spots radio, TV, digital, campagnes de marque</p>
+        </div>
+        <div class="service-card">
+          <svg class="icon icon-lg"><use href="#icon-book"/></svg>
+          <h3>Narration</h3>
+          <p>Documentaires, livres audio, podcasts</p>
+        </div>
+        <div class="service-card">
+          <svg class="icon icon-lg"><use href="#icon-briefcase"/></svg>
+          <h3>Institutionnel</h3>
+          <p>Vidéos d'entreprise, présentations, communication interne</p>
+        </div>
+        <div class="service-card">
+          <svg class="icon icon-lg"><use href="#icon-monitor"/></svg>
+          <h3>E-learning</h3>
+          <p>Modules de formation, tutoriels, MOOC</p>
+        </div>
+      </div>
+
+      <div class="service-cta">
+        <a href="#contact" class="btn btn-primary">Demander un devis gratuit</a>
+        <p>Devis sur mesure · Réponse sous 24h</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- RÉFÉRENCES & TÉMOIGNAGES -->
+  <!-- ============================================ -->
+  <section class="section" id="references">
+    <div class="wrap">
+      <p class="eyebrow">Références &amp; témoignages</p>
+      <h2>Ils m'ont fait confiance</h2>
+
+      <div class="testimonial-grid">
+        <blockquote class="testimonial">
+          <div class="stars" aria-hidden="true">
+            <svg class="icon"><use href="#icon-star"/></svg>
+            <svg class="icon"><use href="#icon-star"/></svg>
+            <svg class="icon"><use href="#icon-star"/></svg>
+            <svg class="icon"><use href="#icon-star"/></svg>
+            <svg class="icon"><use href="#icon-star"/></svg>
+          </div>
+          <p>« Sergio fait partie des meilleures voix masculines avec lesquelles nous avons collaboré. Livraisons toujours dans les délais, qualité toujours au rendez-vous. »</p>
+          <cite>— Abou FAICAL, Baba Studio Mix</cite>
+        </blockquote>
+        <blockquote class="testimonial">
+          <div class="stars" aria-hidden="true">
+            <svg class="icon"><use href="#icon-star"/></svg>
+            <svg class="icon"><use href="#icon-star"/></svg>
+            <svg class="icon"><use href="#icon-star"/></svg>
+            <svg class="icon"><use href="#icon-star"/></svg>
+            <svg class="icon"><use href="#icon-star"/></svg>
+          </div>
+          <p>« Sonote a fait appel à Sergio à plusieurs reprises pour nos projets de voix-off, et à chaque fois, le résultat a été à la hauteur de nos attentes. Sérieux, réactif et toujours à l'écoute des directives artistiques, il livre un travail de qualité dans les délais impartis. »</p>
+          <cite>— Michael DEGNY, Sonote</cite>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- PROCESSUS -->
+  <!-- ============================================ -->
+  <section class="section section-alt" id="processus">
+    <div class="wrap">
+      <p class="eyebrow">Processus</p>
+      <h2>Comment ça marche&nbsp;?</h2>
+
+      <ol class="steps">
+        <li class="step">
+          <span class="step-icon"><svg class="icon"><use href="#icon-mail"/></svg></span>
+          <span class="step-num">01</span>
+          <h3>Contact</h3>
+          <p>Vous décrivez votre projet</p>
+        </li>
+        <li class="step">
+          <span class="step-icon"><svg class="icon"><use href="#icon-file"/></svg></span>
+          <span class="step-num">02</span>
+          <h3>Devis</h3>
+          <p>Proposition personnalisée sous 24h</p>
+        </li>
+        <li class="step">
+          <span class="step-icon"><svg class="icon"><use href="#icon-pen"/></svg></span>
+          <span class="step-num">03</span>
+          <h3>Signature</h3>
+          <p>Validation du contrat de prestation</p>
+        </li>
+        <li class="step">
+          <span class="step-icon"><svg class="icon"><use href="#icon-mic"/></svg></span>
+          <span class="step-num">04</span>
+          <h3>Enregistrement</h3>
+          <p>Home-studio, studio, ou session dirigée à distance</p>
+        </li>
+        <li class="step">
+          <span class="step-icon"><svg class="icon"><use href="#icon-download"/></svg></span>
+          <span class="step-num">05</span>
+          <h3>Livraison</h3>
+          <p>Fichiers audio haute qualité sous 24h</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- CONTACT -->
+  <!-- ============================================ -->
+  <section class="section section-dark" id="contact">
+    <div class="wrap contact-grid">
+      <div class="contact-intro">
+        <p class="eyebrow eyebrow-on-dark">Contact</p>
+        <h2 class="on-dark">Prêt à donner une voix à votre projet&nbsp;?</h2>
+        <p class="contact-sub">Réponse sous 24h · Devis gratuit et personnalisé</p>
+
+        <div class="contact-alt">
+          <a href="mailto:infosergiosvoix@gmail.com" class="contact-link">
+            <svg class="icon"><use href="#icon-mail"/></svg>
+            infosergiosvoix@gmail.com
+          </a>
+          <a href="tel:+22893261245" class="contact-link">
+            <svg class="icon"><use href="#icon-phone"/></svg>
+            +228 93 26 12 45
+          </a>
+          <a href="https://wa.me/22893261245" class="contact-link" target="_blank" rel="noopener">
+            <svg class="icon"><use href="#icon-chat"/></svg>
+            WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <form class="contact-form" id="contact-form" novalidate>
+        <div class="hp-field" aria-hidden="true">
+          <label for="website">Ne pas remplir</label>
+          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+        </div>
+        <div class="form-row">
+          <label for="name">Nom &amp; société</label>
+          <input type="text" id="name" name="name" required autocomplete="name">
+        </div>
+        <div class="form-row">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required autocomplete="email">
+        </div>
+        <div class="form-row">
+          <label for="phone">Téléphone <span class="optional">(facultatif)</span></label>
+          <input type="tel" id="phone" name="phone" autocomplete="tel">
+        </div>
+        <div class="form-row">
+          <label for="message">Décrivez votre projet</label>
+          <textarea id="message" name="message" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block" id="contact-submit">
+          Envoyer ma demande
+        </button>
+        <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================================ -->
+<!-- FOOTER -->
+<!-- ============================================ -->
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <p>&copy; 2026 Sergio WEKA — Comédien voix-off. Tous droits réservés.</p>
+    <div class="footer-social">
+      <a href="#" aria-label="LinkedIn"><svg class="icon"><use href="#icon-linkedin"/></svg></a>
+      <a href="#" aria-label="Instagram"><svg class="icon"><use href="#icon-instagram"/></svg></a>
+      <a href="#" aria-label="SoundCloud"><svg class="icon"><use href="#icon-music"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
