@@ -76,8 +76,10 @@
 
     const setPlayingState = (isPlaying) => {
       player.classList.toggle('is-playing', isPlaying);
-      iconPlay.hidden = isPlaying;
-      iconPause.hidden = !isPlaying;
+      // SVG elements don't reflect the `hidden` IDL property like HTML elements do,
+      // so toggle the attribute directly instead of `iconPlay.hidden = ...`.
+      iconPlay.toggleAttribute('hidden', isPlaying);
+      iconPause.toggleAttribute('hidden', !isPlaying);
     };
 
     const pause = () => { audio.pause(); setPlayingState(false); };
