@@ -228,28 +228,24 @@
       status.textContent = '';
       status.className = 'form-status';
 
-      const data = {
-        name: form.name.value.trim(),
-        email: form.email.value.trim(),
-        phone: form.phone.value.trim(),
-        message: form.message.value.trim(),
-        website: form.website.value.trim(),
-      };
+      const fullName = form.fullName.value.trim();
+      const email = form.email.value.trim();
+      const acceptPayment = form.acceptPayment.checked;
 
-      if (!data.name || !data.email || !data.message) {
-        status.textContent = 'Merci de remplir tous les champs obligatoires.';
+      if (!fullName || !email || !acceptPayment) {
+        status.textContent = "Merci de renseigner votre nom, votre email, et d'accepter les modalités de paiement.";
         status.classList.add('is-error');
         return;
       }
 
+      const submitLabel = submitBtn.textContent;
       submitBtn.disabled = true;
       submitBtn.textContent = 'Envoi en cours…';
 
       try {
         const res = await fetch('/api/contact', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data),
+          body: new FormData(form),
         });
         const result = await res.json().catch(() => ({}));
 
@@ -263,7 +259,7 @@
         status.classList.add('is-error');
       } finally {
         submitBtn.disabled = false;
-        submitBtn.textContent = 'Envoyer ma demande';
+        submitBtn.textContent = submitLabel;
       }
     });
   }

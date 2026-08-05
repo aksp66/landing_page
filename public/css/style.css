@@ -636,6 +636,71 @@ p { margin: 0 0 1em; color: var(--text-soft); }
 .form-row textarea { resize: vertical; min-height: 100px; }
 .form-row input:focus,
 .form-row textarea:focus { outline: 2px solid var(--white); outline-offset: 1px; }
+.form-row input[type="file"] { color: var(--accent-pale); font-size: 0.85rem; padding-block: 0.6em; }
+.form-row input[type="date"] { color-scheme: dark; }
+.form-row-inline { max-width: 340px; }
+
+.form-fieldset {
+  border: none;
+  padding: 0;
+  margin: 0 0 28px;
+  min-width: 0;
+}
+.form-fieldset legend {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--white);
+  padding: 0 0 10px;
+  margin: 0 0 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.14);
+  width: 100%;
+}
+.fieldset-hint {
+  font-size: 0.78rem;
+  color: var(--text-faint);
+  margin: 0 0 10px;
+}
+.fieldset-hint-tight { margin-top: 18px; }
+
+.chip-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.chip {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5em 0.9em;
+  border-radius: var(--radius-pill);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.18);
+  font-size: 0.8rem;
+  color: var(--accent-pale);
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+.chip input { position: absolute; opacity: 0; pointer-events: none; }
+.chip:has(input:checked) {
+  background: var(--white);
+  border-color: var(--white);
+  color: var(--navy);
+  font-weight: 600;
+}
+.chip:has(input:focus-visible) { outline: 2px solid var(--white); outline-offset: 2px; }
+
+.payment-note {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: var(--radius-sm);
+  padding: 18px 20px;
+  margin: 4px 0 20px;
+}
+.payment-note h3 { color: var(--white); margin-bottom: 0.4em; font-size: 0.95rem; }
+.payment-note p { color: var(--accent-pale); font-size: 0.85rem; margin-bottom: 14px; }
+.chip-accept { width: 100%; justify-content: center; text-align: center; }
 
 .form-status {
   margin: 14px 0 0;

@@ -490,24 +490,165 @@
           <label for="website">Ne pas remplir</label>
           <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
         </div>
-        <div class="form-row">
-          <label for="name">Nom &amp; société</label>
-          <input type="text" id="name" name="name" required autocomplete="name">
+
+        <fieldset class="form-fieldset">
+          <legend>1. Vos coordonnées</legend>
+          <div class="form-row">
+            <label for="fullName">Nom et prénom</label>
+            <input type="text" id="fullName" name="fullName" required autocomplete="name">
+          </div>
+          <div class="form-row">
+            <label for="company">Société <span class="optional">(si applicable)</span></label>
+            <input type="text" id="company" name="company" autocomplete="organization">
+          </div>
+          <div class="form-row">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required autocomplete="email">
+          </div>
+          <div class="form-row">
+            <label for="phone">Téléphone <span class="optional">(facultatif)</span></label>
+            <input type="tel" id="phone" name="phone" autocomplete="tel">
+          </div>
+        </fieldset>
+
+        <fieldset class="form-fieldset">
+          <legend>2. Type de projet</legend>
+          <p class="fieldset-hint">Cochez ce qui correspond à votre projet</p>
+          <div class="chip-group">
+            <label class="chip"><input type="checkbox" name="projectType" value="Publicité / Promotion"><span>Publicité / Promotion</span></label>
+            <label class="chip"><input type="checkbox" name="projectType" value="Narration / Documentaire"><span>Narration / Documentaire</span></label>
+            <label class="chip"><input type="checkbox" name="projectType" value="Institutionnel / Corporatif"><span>Institutionnel / Corporatif</span></label>
+            <label class="chip"><input type="checkbox" name="projectType" value="E-learning / Formation"><span>E-learning / Formation</span></label>
+            <label class="chip"><input type="checkbox" name="projectType" value="SVI / Répondeur téléphonique"><span>SVI / Répondeur téléphonique</span></label>
+          </div>
+          <div class="form-row form-row-inline">
+            <label for="projectTypeOther">Autre, précisez</label>
+            <input type="text" id="projectTypeOther" name="projectTypeOther">
+          </div>
+        </fieldset>
+
+        <fieldset class="form-fieldset">
+          <legend>3. Ton / style de voix souhaité</legend>
+          <p class="fieldset-hint">Cochez une ou plusieurs ambiances recherchées</p>
+          <div class="chip-group">
+            <label class="chip"><input type="checkbox" name="voiceTone" value="Dynamique / Énergique"><span>Dynamique / Énergique</span></label>
+            <label class="chip"><input type="checkbox" name="voiceTone" value="Chaleureux / Rassurant"><span>Chaleureux / Rassurant</span></label>
+            <label class="chip"><input type="checkbox" name="voiceTone" value="Sérieux / Institutionnel"><span>Sérieux / Institutionnel</span></label>
+            <label class="chip"><input type="checkbox" name="voiceTone" value="Jeune / Moderne"><span>Jeune / Moderne</span></label>
+            <label class="chip"><input type="checkbox" name="voiceTone" value="Grave / Autoritaire"><span>Grave / Autoritaire</span></label>
+          </div>
+          <div class="form-row form-row-inline">
+            <label for="voiceToneOther">Autre, précisez</label>
+            <input type="text" id="voiceToneOther" name="voiceToneOther">
+          </div>
+          <div class="form-row">
+            <label for="referenceLink">Lien de référence <span class="optional">(une voix qui vous plaît)</span></label>
+            <input type="url" id="referenceLink" name="referenceLink" placeholder="https://…">
+          </div>
+        </fieldset>
+
+        <fieldset class="form-fieldset">
+          <legend>4. Plateforme de diffusion</legend>
+          <p class="fieldset-hint">Cochez ce qui correspond à votre projet</p>
+          <div class="chip-group">
+            <label class="chip"><input type="checkbox" name="platform" value="Spot TV national"><span>Spot TV national</span></label>
+            <label class="chip"><input type="checkbox" name="platform" value="Spot radio"><span>Spot radio</span></label>
+            <label class="chip"><input type="checkbox" name="platform" value="Spot Web / Réseaux sociaux"><span>Spot Web / Réseaux sociaux</span></label>
+            <label class="chip"><input type="checkbox" name="platform" value="Long métrage : livre audio"><span>Long métrage : livre audio</span></label>
+          </div>
+
+          <p class="fieldset-hint fieldset-hint-tight">Zone géographique de diffusion</p>
+          <div class="chip-group">
+            <label class="chip"><input type="checkbox" name="broadcastZone" value="National"><span>National</span></label>
+            <label class="chip"><input type="checkbox" name="broadcastZone" value="International"><span>International</span></label>
+          </div>
+
+          <p class="fieldset-hint fieldset-hint-tight">Durée d'exploitation souhaitée</p>
+          <div class="chip-group">
+            <label class="chip"><input type="checkbox" name="usageDuration" value="6 mois"><span>6 mois</span></label>
+            <label class="chip"><input type="checkbox" name="usageDuration" value="1 an"><span>1 an</span></label>
+            <label class="chip"><input type="checkbox" name="usageDuration" value="2 ans"><span>2 ans</span></label>
+            <label class="chip"><input type="checkbox" name="usageDuration" value="Illimitée"><span>Illimitée</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="form-fieldset">
+          <legend>5. Détails techniques</legend>
+          <p class="fieldset-hint">Durée, nombre de mots</p>
+          <div class="chip-group">
+            <label class="chip"><input type="checkbox" name="length" value="0 à 1 minute (≈150 mots)"><span>0 à 1 minute (≈150 mots)</span></label>
+            <label class="chip"><input type="checkbox" name="length" value="1 à 3 minutes (≈450 mots)"><span>1 à 3 minutes (≈450 mots)</span></label>
+            <label class="chip"><input type="checkbox" name="length" value="1 à 5 minutes (≈700 mots)"><span>1 à 5 minutes (≈700 mots)</span></label>
+            <label class="chip"><input type="checkbox" name="length" value="1 à 10 minutes (≈1500 mots)"><span>1 à 10 minutes (≈1500 mots)</span></label>
+          </div>
+          <p class="fieldset-hint fieldset-hint-tight">Si votre projet est un long métrage, le type</p>
+          <div class="chip-group">
+            <label class="chip"><input type="checkbox" name="longFormType" value="Livre audio"><span>Livre audio</span></label>
+            <label class="chip"><input type="checkbox" name="longFormType" value="Documentaire long métrage"><span>Documentaire long métrage</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="form-fieldset">
+          <legend>6. Script</legend>
+          <div class="chip-group">
+            <label class="chip"><input type="radio" name="scriptStatus" value="J'ai déjà mon script prêt"><span>J'ai déjà mon script prêt</span></label>
+            <label class="chip"><input type="radio" name="scriptStatus" value="J'ai besoin d'aide pour la rédaction"><span>J'ai besoin d'aide pour la rédaction</span></label>
+          </div>
+          <div class="form-row">
+            <label for="scriptFile">Joindre votre script <span class="optional">(facultatif — PDF, Word ou texte, 15 Mo max)</span></label>
+            <input type="file" id="scriptFile" name="scriptFile" accept=".pdf,.doc,.docx,.txt,.odt">
+          </div>
+        </fieldset>
+
+        <fieldset class="form-fieldset">
+          <legend>7. Délai souhaité</legend>
+          <div class="chip-group">
+            <label class="chip"><input type="radio" name="deadline" value="Flexible"><span>Flexible</span></label>
+            <label class="chip"><input type="radio" name="deadline" value="Sous 1 semaine"><span>Sous 1 semaine</span></label>
+            <label class="chip"><input type="radio" name="deadline" value="Urgent (48h)"><span>Urgent (48h)</span></label>
+          </div>
+          <div class="form-row form-row-inline">
+            <label for="deadlineDate">Date précise <span class="optional">(si applicable)</span></label>
+            <input type="date" id="deadlineDate" name="deadlineDate">
+          </div>
+        </fieldset>
+
+        <fieldset class="form-fieldset">
+          <legend>8. Traitement audio</legend>
+          <p class="fieldset-hint">Souhaitez-vous un mixage / habillage sonore (musique, bruitages, égalisation) en plus de la voix brute&nbsp;?</p>
+          <div class="chip-group">
+            <label class="chip"><input type="radio" name="audioMix" value="Oui"><span>Oui</span></label>
+            <label class="chip"><input type="radio" name="audioMix" value="Non"><span>Non</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="form-fieldset">
+          <legend>9. Format de livraison</legend>
+          <div class="chip-group">
+            <label class="chip"><input type="checkbox" name="deliveryFormat" value="WAV"><span>Fichier WAV</span></label>
+            <label class="chip"><input type="checkbox" name="deliveryFormat" value="MP3"><span>Fichier MP3</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="form-fieldset">
+          <legend>10. Précisions complémentaires</legend>
+          <div class="form-row">
+            <label for="message">Un détail à ajouter qui ne rentre dans aucune case ci-dessus&nbsp;? <span class="optional">(facultatif)</span></label>
+            <textarea id="message" name="message" rows="4"></textarea>
+          </div>
+        </fieldset>
+
+        <div class="payment-note">
+          <h3>Modalités de paiement</h3>
+          <p>Un acompte de 70&nbsp;% est à régler avant le début de l'enregistrement. Le solde de 30&nbsp;% est dû à la livraison du fichier final.</p>
+          <label class="chip chip-accept">
+            <input type="checkbox" id="acceptPayment" name="acceptPayment" required>
+            <span>J'accepte ces modalités de paiement</span>
+          </label>
         </div>
-        <div class="form-row">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required autocomplete="email">
-        </div>
-        <div class="form-row">
-          <label for="phone">Téléphone <span class="optional">(facultatif)</span></label>
-          <input type="tel" id="phone" name="phone" autocomplete="tel">
-        </div>
-        <div class="form-row">
-          <label for="message">Décrivez votre projet</label>
-          <textarea id="message" name="message" rows="4" required></textarea>
-        </div>
+
         <button type="submit" class="btn btn-primary btn-block" id="contact-submit">
-          Envoyer ma demande
+          Envoyer ma demande de devis
         </button>
         <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
       </form>
