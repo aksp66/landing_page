@@ -12,8 +12,11 @@ const MAX_LEN = {
 
 const upload = multer({
   storage: multer.memoryStorage(),
-  limits: { fileSize: 15 * 1024 * 1024 }, // 15 Mo
-}).single('scriptFile');
+  limits: { fileSize: 15 * 1024 * 1024 }, // 15 Mo par fichier
+}).fields([
+  { name: 'scriptFile', maxCount: 1 },
+  { name: 'musicFile', maxCount: 1 },
+]);
 
 const str = (v) => (typeof v === 'string' ? v.trim() : '');
 
@@ -74,12 +77,16 @@ router.post('/', (req, res) => {
       deadline: str(body.deadline),
       deadlineDate: str(body.deadlineDate),
       audioMix: str(body.audioMix),
+      mixType: str(body.mixType),
       deliveryFormat: list(body.deliveryFormat),
       message: str(body.message).slice(0, MAX_LEN.message),
     };
 
+    const scriptFile = req.files?.scriptFile?.[0];
+    const musicFile = req.files?.musicFile?.[0];
+
     try {
-      await sendContactEmail(details, req.file);
+      await sendContactEmail(details, [scriptFile, musicFile].filter(Boolean));
       return res.json({ ok: true });
     } catch (err) {
       if (err.message === 'SMTP_NOT_CONFIGURED') {

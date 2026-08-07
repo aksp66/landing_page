@@ -223,6 +223,28 @@
   const submitBtn = document.getElementById('contact-submit');
 
   if (form && status && submitBtn) {
+    // Traitement audio : "Oui" révèle le choix du type de mixage,
+    // et "Mixage à musique" révèle l'upload du fichier musique.
+    const mixTypeSection = document.getElementById('mixTypeSection');
+    const musicFileRow = document.getElementById('musicFileRow');
+
+    form.addEventListener('change', (e) => {
+      if (e.target.name === 'audioMix') {
+        const showMixType = e.target.value === 'Oui';
+        mixTypeSection.hidden = !showMixType;
+        if (!showMixType) {
+          form.querySelectorAll('input[name="mixType"]').forEach((r) => { r.checked = false; });
+          musicFileRow.hidden = true;
+          form.musicFile.value = '';
+        }
+      }
+      if (e.target.name === 'mixType') {
+        const showMusicFile = e.target.value === 'Mixage à musique';
+        musicFileRow.hidden = !showMusicFile;
+        if (!showMusicFile) form.musicFile.value = '';
+      }
+    });
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       status.textContent = '';

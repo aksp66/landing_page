@@ -1008,29 +1008,22 @@
                   ><input
                     type="checkbox"
                     name="platform"
-                    value="Spot TV national"
-                  /><span>Spot TV national</span></label
+                    value="TV national"
+                  /><span>TV national</span></label
                 >
                 <label class="chip"
                   ><input
                     type="checkbox"
                     name="platform"
-                    value="Spot radio"
-                  /><span>Spot radio</span></label
+                    value="radio"
+                  /><span>radio</span></label
                 >
                 <label class="chip"
                   ><input
                     type="checkbox"
                     name="platform"
-                    value="Spot Web / Réseaux sociaux"
-                  /><span>Spot Web / Réseaux sociaux</span></label
-                >
-                <label class="chip"
-                  ><input
-                    type="checkbox"
-                    name="platform"
-                    value="Long métrage : livre audio"
-                  /><span>Long métrage : livre audio</span></label
+                    value="Web / Réseaux sociaux"
+                  /><span>Web / Réseaux sociaux</span></label
                 >
               </div>
 
@@ -1226,6 +1219,19 @@
                     >Non</span
                   ></label
                 >
+              </div>
+
+              <div class="form-subsection" id="mixTypeSection" hidden>
+                <p class="fieldset-hint fieldset-hint-tight">Quel type de traitement souhaitez-vous&nbsp;?</p>
+                <div class="chip-group">
+                  <label class="chip"><input type="radio" name="mixType" value="Mixage"><span>Mixage</span></label>
+                  <label class="chip"><input type="radio" name="mixType" value="Mixage &amp; Mastering"><span>Mixage &amp; Mastering</span></label>
+                  <label class="chip"><input type="radio" name="mixType" value="Mixage à musique"><span>Mixage avec musique</span></label>
+                </div>
+                <div class="form-row" id="musicFileRow" hidden>
+                  <label for="musicFile">Musique à intégrer <span class="optional">(fichier MP3, 15 Mo max)</span></label>
+                  <input type="file" id="musicFile" name="musicFile" accept=".mp3,audio/mpeg">
+                </div>
               </div>
             </fieldset>
 

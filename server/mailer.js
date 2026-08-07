@@ -103,7 +103,13 @@ function buildSections(d) {
   }
 
   if (d.audioMix) {
-    sections.push({ title: 'Traitement audio (mixage / habillage sonore)', lines: [[null, d.audioMix]] });
+    sections.push({
+      title: 'Traitement audio (mixage / habillage sonore)',
+      lines: [
+        [null, d.audioMix],
+        ['Type de traitement', d.mixType],
+      ],
+    });
   }
 
   if (d.deliveryFormat.length) {
@@ -122,7 +128,7 @@ function buildSections(d) {
   return sections;
 }
 
-async function sendContactEmail(details, file) {
+async function sendContactEmail(details, files = []) {
   const t = getTransporter();
 
   if (!t) {
@@ -149,10 +155,10 @@ async function sendContactEmail(details, file) {
     textParts.push('');
   });
 
-  if (file) {
-    textParts.push(`Script joint : ${file.originalname}`);
-    htmlParts.push(`<p><strong>Script joint :</strong> ${escapeHtml(file.originalname)}</p>`);
-  }
+  files.forEach((f) => {
+    textParts.push(`Fichier joint : ${f.originalname}`);
+    htmlParts.push(`<p><strong>Fichier joint :</strong> ${escapeHtml(f.originalname)}</p>`);
+  });
 
   await t.sendMail({
     from: process.env.SMTP_FROM || process.env.SMTP_USER,
@@ -161,9 +167,7 @@ async function sendContactEmail(details, file) {
     subject: `Nouvelle demande de devis — ${details.fullName}`,
     text: textParts.join('\n'),
     html: htmlParts.join('\n'),
-    attachments: file
-      ? [{ filename: file.originalname, content: file.buffer, contentType: file.mimetype }]
-      : [],
+    attachments: files.map((f) => ({ filename: f.originalname, content: f.buffer, contentType: f.mimetype })),
   });
 }
 
