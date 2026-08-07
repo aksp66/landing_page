@@ -1,6 +1,6 @@
 const nodemailer = require('nodemailer');
 
-const CONTACT_TO_EMAIL = process.env.CONTACT_TO_EMAIL || 'infosergiosvoix@gmail.com';
+const CONTACT_TO_EMAIL = process.env.CONTACT_TO_EMAIL || 'infosergiosvoixoff@gmail.com';
 
 let transporter = null;
 
