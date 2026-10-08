@@ -252,8 +252,29 @@
   const submitBtn = document.getElementById('contact-submit');
 
   if (form && status && submitBtn) {
-    // Traitement audio : "Oui" révèle le choix du type de mixage,
-    // et "Mixage à musique" révèle l'upload du fichier musique.
+    // Options des cases à cocher du devis : chargées depuis /api/devis-config
+    // plutôt que codées en dur, pour que Sergio puisse les modifier depuis
+    // le dashboard sans toucher au code.
+    const escapeHtml = (str) => String(str).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+    fetch('/api/devis-config')
+      .then((res) => (res.ok ? res.json() : Promise.reject(new Error('bad response'))))
+      .then((config) => {
+        form.querySelectorAll('.chip-group[data-field]').forEach((group) => {
+          const field = group.dataset.field;
+          const type = group.dataset.type || 'checkbox';
+          const options = Array.isArray(config[field]) ? config[field] : [];
+          group.innerHTML = options
+            .map((opt) => `<label class="chip"><input type="${type}" name="${field}" value="${escapeHtml(opt)}"><span>${escapeHtml(opt)}</span></label>`)
+            .join('');
+        });
+      })
+      .catch(() => console.error('Impossible de charger les options du formulaire de devis.'));
+
+    // Traitement audio : "Oui" révèle le choix du type de mixage, et toute
+    // option de type de mixage contenant "musique" révèle l'upload MP3.
+    // Match par mot-clé (pas de chaîne exacte) car ces options sont
+    // maintenant modifiables depuis le dashboard.
     const mixTypeSection = document.getElementById('mixTypeSection');
     const musicFileRow = document.getElementById('musicFileRow');
 
@@ -268,7 +289,7 @@
         }
       }
       if (e.target.name === 'mixType') {
-        const showMusicFile = e.target.value === 'Mixage à musique';
+        const showMusicFile = /musique/i.test(e.target.value);
         musicFileRow.hidden = !showMusicFile;
         if (!showMusicFile) form.musicFile.value = '';
       }
