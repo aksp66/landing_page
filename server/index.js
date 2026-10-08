@@ -6,6 +6,7 @@ const rateLimit = require('express-rate-limit');
 const contactRouter = require('./routes/contact');
 const trackRouter = require('./routes/track');
 const dashboardRouter = require('./routes/dashboard');
+const devisConfigRouter = require('./routes/devisConfig');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -39,6 +40,7 @@ const dashboardLimiter = rateLimit({
 app.use('/api/contact', contactLimiter, contactRouter);
 app.use('/api/track', trackLimiter, trackRouter);
 app.use('/api/dashboard', dashboardLimiter, dashboardRouter);
+app.use('/api/devis-config', devisConfigRouter);
 
 app.listen(PORT, () => {
   console.log(`Sergio WEKA — landing page en ligne sur http://localhost:${PORT}`);

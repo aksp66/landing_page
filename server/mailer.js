@@ -171,4 +171,21 @@ async function sendContactEmail(details, files = []) {
   });
 }
 
-module.exports = { sendContactEmail };
+async function sendReplyEmail({ to, fullName, message }) {
+  const t = getTransporter();
+  if (!t) throw new Error('SMTP_NOT_CONFIGURED');
+
+  const firstName = (fullName || '').trim().split(/\s+/)[0] || '';
+  const greeting = firstName ? `Bonjour ${firstName},` : 'Bonjour,';
+  const body = `${greeting}\n\n${message}`;
+
+  await t.sendMail({
+    from: process.env.SMTP_FROM || process.env.SMTP_USER,
+    to,
+    subject: 'Re : votre demande de devis — Sergio WEKA',
+    text: body,
+    html: `<p>${escapeHtml(body).replace(/\n/g, '<br>')}</p>`,
+  });
+}
+
+module.exports = { sendContactEmail, sendReplyEmail };

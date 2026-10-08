@@ -2,6 +2,7 @@ const express = require('express');
 const multer = require('multer');
 const { sendContactEmail } = require('../mailer');
 const { trackQuote } = require('../stats');
+const { saveDevisSubmission } = require('../devisStore');
 
 const router = express.Router();
 
@@ -85,17 +86,23 @@ router.post('/', (req, res) => {
 
     const scriptFile = req.files?.scriptFile?.[0];
     const musicFile = req.files?.musicFile?.[0];
+    const fileNames = [scriptFile, musicFile].filter(Boolean).map((f) => f.originalname);
+
+    const recordSubmission = () => {
+      trackQuote().catch((e) => console.error('[stats] Échec trackQuote :', e.message));
+      saveDevisSubmission(details, fileNames).catch((e) => console.error('[devis] Échec enregistrement :', e.message));
+    };
 
     try {
       await sendContactEmail(details, [scriptFile, musicFile].filter(Boolean));
-      trackQuote().catch((e) => console.error('[stats] Échec trackQuote :', e.message));
+      recordSubmission();
       return res.json({ ok: true });
     } catch (err) {
       if (err.message === 'SMTP_NOT_CONFIGURED') {
         // Dev fallback so the flow is testable before SMTP credentials exist.
         console.warn('[contact] SMTP non configuré — demande reçue mais non envoyée par email :');
         console.warn(details);
-        trackQuote().catch((e) => console.error('[stats] Échec trackQuote :', e.message));
+        recordSubmission();
         return res.json({ ok: true, warning: 'SMTP non configuré (mode dev)' });
       }
       console.error('[contact] Échec d\'envoi email :', err);

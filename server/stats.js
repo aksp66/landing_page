@@ -1,18 +1,6 @@
-const { Redis } = require('@upstash/redis');
+const { getRedis } = require('./redisClient');
 
-let redis = null;
-
-function getClient() {
-  if (redis) return redis;
-  if (!process.env.UPSTASH_REDIS_REST_URL || !process.env.UPSTASH_REDIS_REST_TOKEN) {
-    return null;
-  }
-  redis = new Redis({
-    url: process.env.UPSTASH_REDIS_REST_URL,
-    token: process.env.UPSTASH_REDIS_REST_TOKEN,
-  });
-  return redis;
-}
+const getClient = getRedis;
 
 const todayKey = () => new Date().toISOString().slice(0, 10); // YYYY-MM-DD
 const DAY_SECONDS = 60 * 60 * 24;
