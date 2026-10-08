@@ -34,44 +34,99 @@
 
   <section class="dash-content" id="dash-content" hidden>
     <div class="dash-content-head">
-      <h1>Statistiques</h1>
+      <h1>Dashboard</h1>
       <button type="button" class="dash-logout" id="dash-logout">Se déconnecter</button>
     </div>
 
-    <p class="dash-not-configured" id="dash-not-configured" hidden>
-      La base de statistiques (Upstash) n'est pas encore configurée — ajoutez
-      <code>UPSTASH_REDIS_REST_URL</code> et <code>UPSTASH_REDIS_REST_TOKEN</code> pour que les
-      données commencent à s'accumuler ici.
-    </p>
+    <div class="tabs" role="tablist" aria-label="Sections du dashboard">
+      <button class="tab is-active" role="tab" aria-selected="true" data-dash-tab="stats">Statistiques</button>
+      <button class="tab" role="tab" aria-selected="false" data-dash-tab="devis">Demandes de devis</button>
+      <button class="tab" role="tab" aria-selected="false" data-dash-tab="form">Formulaire de devis</button>
+      <button class="tab" role="tab" aria-selected="false" data-dash-tab="settings">Paramètres</button>
+    </div>
 
-    <div class="dash-cards" id="dash-cards">
-      <div class="dash-card">
-        <span class="dash-card-label">Vues totales</span>
-        <span class="dash-card-value" id="dash-total-views">—</span>
+    <!-- ============================================ -->
+    <!-- ONGLET : STATISTIQUES -->
+    <!-- ============================================ -->
+    <div class="dash-tab-panel" data-dash-panel="stats">
+      <p class="dash-not-configured" id="dash-not-configured" hidden>
+        La base de statistiques (Upstash) n'est pas encore configurée — ajoutez
+        <code>UPSTASH_REDIS_REST_URL</code> et <code>UPSTASH_REDIS_REST_TOKEN</code> pour que les
+        données commencent à s'accumuler ici.
+      </p>
+
+      <div class="dash-cards" id="dash-cards">
+        <div class="dash-card dash-card-a">
+          <span class="dash-card-label">Vues totales</span>
+          <span class="dash-card-value" id="dash-total-views">—</span>
+        </div>
+        <div class="dash-card dash-card-b">
+          <span class="dash-card-label">Devis reçus</span>
+          <span class="dash-card-value" id="dash-total-quotes">—</span>
+        </div>
+        <div class="dash-card dash-card-c">
+          <span class="dash-card-label">Vues (7 derniers jours)</span>
+          <span class="dash-card-value" id="dash-week-views">—</span>
+        </div>
       </div>
-      <div class="dash-card">
-        <span class="dash-card-label">Devis reçus</span>
-        <span class="dash-card-value" id="dash-total-quotes">—</span>
+
+      <div class="dash-panel">
+        <h2>Vues des 14 derniers jours</h2>
+        <div class="dash-chart" id="dash-chart"></div>
       </div>
-      <div class="dash-card">
-        <span class="dash-card-label">Vues (7 derniers jours)</span>
-        <span class="dash-card-value" id="dash-week-views">—</span>
+
+      <div class="dash-panel-grid">
+        <div class="dash-panel">
+          <h2>Démos audio les plus écoutées</h2>
+          <ol class="dash-rank" id="dash-audio-rank"><li class="dash-rank-empty">Aucune donnée pour le moment.</li></ol>
+        </div>
+        <div class="dash-panel">
+          <h2>Vidéos les plus regardées</h2>
+          <ol class="dash-rank" id="dash-video-rank"><li class="dash-rank-empty">Aucune donnée pour le moment.</li></ol>
+        </div>
       </div>
     </div>
 
-    <div class="dash-panel">
-      <h2>Vues des 14 derniers jours</h2>
-      <div class="dash-chart" id="dash-chart"></div>
+    <!-- ============================================ -->
+    <!-- ONGLET : DEMANDES DE DEVIS -->
+    <!-- ============================================ -->
+    <div class="dash-tab-panel" data-dash-panel="devis" hidden>
+      <p class="dash-not-configured" id="dash-devis-not-configured" hidden>
+        La base de données (Upstash) n'est pas configurée — les demandes de devis ne peuvent pas
+        être enregistrées ni affichées ici pour le moment. Elles continuent d'arriver par email.
+      </p>
+      <ol class="dash-devis-list" id="dash-devis-list"></ol>
     </div>
 
-    <div class="dash-panel-grid">
-      <div class="dash-panel">
-        <h2>Démos audio les plus écoutées</h2>
-        <ol class="dash-rank" id="dash-audio-rank"><li class="dash-rank-empty">Aucune donnée pour le moment.</li></ol>
-      </div>
-      <div class="dash-panel">
-        <h2>Vidéos les plus regardées</h2>
-        <ol class="dash-rank" id="dash-video-rank"><li class="dash-rank-empty">Aucune donnée pour le moment.</li></ol>
+    <!-- ============================================ -->
+    <!-- ONGLET : FORMULAIRE DE DEVIS -->
+    <!-- ============================================ -->
+    <div class="dash-tab-panel" data-dash-panel="form" hidden>
+      <p class="dash-panel-intro">
+        Ajoutez ou retirez les options proposées dans le formulaire de devis du site. Les
+        changements sont visibles immédiatement pour les visiteurs.
+      </p>
+      <div id="dash-form-editor"></div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- ONGLET : PARAMÈTRES -->
+    <!-- ============================================ -->
+    <div class="dash-tab-panel" data-dash-panel="settings" hidden>
+      <div class="dash-panel dash-panel-narrow">
+        <h2>Changer le mot de passe</h2>
+        <form id="dash-password-form" novalidate>
+          <div class="dash-form-row">
+            <label for="dash-current-password">Mot de passe actuel</label>
+            <input type="password" id="dash-current-password" name="currentPassword" autocomplete="current-password" required>
+          </div>
+          <div class="dash-form-row">
+            <label for="dash-new-password">Nouveau mot de passe <span class="optional">(6 caractères min.)</span></label>
+            <input type="password" id="dash-new-password" name="newPassword" autocomplete="new-password" required minlength="6">
+          </div>
+          <button type="submit" class="btn btn-primary">Mettre à jour</button>
+          <p class="dash-form-status" id="dash-password-status" role="status" aria-live="polite"></p>
+        </form>
       </div>
     </div>
   </section>
