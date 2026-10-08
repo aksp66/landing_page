@@ -26,7 +26,10 @@
     <h1>Accès au dashboard</h1>
     <p>Entrez le mot de passe pour voir les statistiques du site.</p>
     <form id="dash-gate-form" novalidate>
-      <input type="password" id="dash-password" name="password" placeholder="Mot de passe" autocomplete="current-password" required>
+      <div class="dash-password-field">
+        <input type="password" id="dash-password" name="password" placeholder="Mot de passe" autocomplete="current-password" autocapitalize="off" autocorrect="off" spellcheck="false" required>
+        <button type="button" id="dash-password-toggle" aria-label="Afficher le mot de passe">Afficher</button>
+      </div>
       <button type="submit" class="btn btn-primary">Entrer</button>
     </form>
     <p class="dash-gate-error" id="dash-gate-error" role="alert"></p>

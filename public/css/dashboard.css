@@ -28,14 +28,27 @@
 .dash-gate h1 { font-size: 1.6rem; margin-bottom: 0.3em; }
 .dash-gate p { margin-bottom: 20px; }
 #dash-gate-form { display: flex; gap: 10px; }
+.dash-password-field { position: relative; flex: 1; }
 #dash-password {
-  flex: 1;
-  padding: 0.7em 0.9em;
+  width: 100%;
+  padding: 0.7em 72px 0.7em 0.9em;
   border-radius: var(--radius-sm);
   border: 1px solid var(--card-border);
   background: var(--white);
   font-family: var(--font-body);
   font-size: 0.92rem;
+}
+#dash-password-toggle {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--navy);
+  padding: 4px 8px;
 }
 .dash-gate-error { color: #C0392B; font-size: 0.85rem; margin-top: 12px; min-height: 1.2em; }
 

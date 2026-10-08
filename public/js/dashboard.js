@@ -8,6 +8,7 @@
   const gateForm = document.getElementById('dash-gate-form');
   const gateError = document.getElementById('dash-gate-error');
   const passwordInput = document.getElementById('dash-password');
+  const passwordToggle = document.getElementById('dash-password-toggle');
   const content = document.getElementById('dash-content');
   const notConfigured = document.getElementById('dash-not-configured');
   const cards = document.getElementById('dash-cards');
@@ -391,6 +392,13 @@
       gateError.textContent = err.message;
     }
   };
+
+  passwordToggle.addEventListener('click', () => {
+    const show = passwordInput.type === 'password';
+    passwordInput.type = show ? 'text' : 'password';
+    passwordToggle.textContent = show ? 'Masquer' : 'Afficher';
+    passwordToggle.setAttribute('aria-label', show ? 'Masquer le mot de passe' : 'Afficher le mot de passe');
+  });
 
   gateForm.addEventListener('submit', (e) => {
     e.preventDefault();
