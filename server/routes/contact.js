@@ -1,6 +1,7 @@
 const express = require('express');
 const multer = require('multer');
 const { sendContactEmail } = require('../mailer');
+const { trackQuote } = require('../stats');
 
 const router = express.Router();
 
@@ -87,12 +88,14 @@ router.post('/', (req, res) => {
 
     try {
       await sendContactEmail(details, [scriptFile, musicFile].filter(Boolean));
+      trackQuote().catch((e) => console.error('[stats] Échec trackQuote :', e.message));
       return res.json({ ok: true });
     } catch (err) {
       if (err.message === 'SMTP_NOT_CONFIGURED') {
         // Dev fallback so the flow is testable before SMTP credentials exist.
         console.warn('[contact] SMTP non configuré — demande reçue mais non envoyée par email :');
         console.warn(details);
+        trackQuote().catch((e) => console.error('[stats] Échec trackQuote :', e.message));
         return res.json({ ok: true, warning: 'SMTP non configuré (mode dev)' });
       }
       console.error('[contact] Échec d\'envoi email :', err);
