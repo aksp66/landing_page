@@ -2,6 +2,30 @@
   'use strict';
 
   /* ============================================
+     STATISTIQUES (dashboard) — pings silencieux,
+     n'affectent jamais le fonctionnement du site
+     ============================================ */
+  const idFromUrl = (url) => {
+    try {
+      const path = new URL(url, location.href).pathname;
+      return path.split('/').pop().replace(/\.[^.]+$/, '');
+    } catch {
+      return '';
+    }
+  };
+
+  const track = (path, body) => {
+    fetch(path, {
+      method: 'POST',
+      headers: body ? { 'Content-Type': 'application/json' } : undefined,
+      body: body ? JSON.stringify(body) : undefined,
+      keepalive: true,
+    }).catch(() => {});
+  };
+
+  track('/api/track/view');
+
+  /* ============================================
      NAV MOBILE
      ============================================ */
   const navToggle = document.getElementById('nav-toggle');
@@ -100,7 +124,10 @@
       }
     });
 
-    audio.addEventListener('play', () => setPlayingState(true));
+    audio.addEventListener('play', () => {
+      setPlayingState(true);
+      track('/api/track/media', { type: 'audio', id: idFromUrl(audio.currentSrc || audio.src) });
+    });
     audio.addEventListener('pause', () => setPlayingState(false));
     audio.addEventListener('ended', () => { setPlayingState(false); fill.style.width = '0%'; currentlyPlaying = null; });
 
@@ -200,8 +227,10 @@
         overlay.hidden = false;
         videoEl.hidden = false;
         errorEl.hidden = true;
-        videoEl.src = link.getAttribute('href');
+        const href = link.getAttribute('href');
+        videoEl.src = href;
         videoEl.play().catch(() => {});
+        track('/api/track/media', { type: 'video', id: idFromUrl(href) });
       });
     });
 

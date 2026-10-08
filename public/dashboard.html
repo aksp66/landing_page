@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard — Sergio WEKA</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body class="dashboard-body">
+
+<header class="dash-header">
+  <div class="wrap dash-header-inner">
+    <a href="index.html" class="brand">Sergio <span>WEKA</span></a>
+    <p class="dash-title">Dashboard</p>
+  </div>
+</header>
+
+<main class="wrap dash-main">
+
+  <section class="dash-gate" id="dash-gate">
+    <h1>Accès au dashboard</h1>
+    <p>Entrez le mot de passe pour voir les statistiques du site.</p>
+    <form id="dash-gate-form" novalidate>
+      <input type="password" id="dash-password" name="password" placeholder="Mot de passe" autocomplete="current-password" required>
+      <button type="submit" class="btn btn-primary">Entrer</button>
+    </form>
+    <p class="dash-gate-error" id="dash-gate-error" role="alert"></p>
+  </section>
+
+  <section class="dash-content" id="dash-content" hidden>
+    <div class="dash-content-head">
+      <h1>Statistiques</h1>
+      <button type="button" class="dash-logout" id="dash-logout">Se déconnecter</button>
+    </div>
+
+    <p class="dash-not-configured" id="dash-not-configured" hidden>
+      La base de statistiques (Upstash) n'est pas encore configurée — ajoutez
+      <code>UPSTASH_REDIS_REST_URL</code> et <code>UPSTASH_REDIS_REST_TOKEN</code> pour que les
+      données commencent à s'accumuler ici.
+    </p>
+
+    <div class="dash-cards" id="dash-cards">
+      <div class="dash-card">
+        <span class="dash-card-label">Vues totales</span>
+        <span class="dash-card-value" id="dash-total-views">—</span>
+      </div>
+      <div class="dash-card">
+        <span class="dash-card-label">Devis reçus</span>
+        <span class="dash-card-value" id="dash-total-quotes">—</span>
+      </div>
+      <div class="dash-card">
+        <span class="dash-card-label">Vues (7 derniers jours)</span>
+        <span class="dash-card-value" id="dash-week-views">—</span>
+      </div>
+    </div>
+
+    <div class="dash-panel">
+      <h2>Vues des 14 derniers jours</h2>
+      <div class="dash-chart" id="dash-chart"></div>
+    </div>
+
+    <div class="dash-panel-grid">
+      <div class="dash-panel">
+        <h2>Démos audio les plus écoutées</h2>
+        <ol class="dash-rank" id="dash-audio-rank"><li class="dash-rank-empty">Aucune donnée pour le moment.</li></ol>
+      </div>
+      <div class="dash-panel">
+        <h2>Vidéos les plus regardées</h2>
+        <ol class="dash-rank" id="dash-video-rank"><li class="dash-rank-empty">Aucune donnée pour le moment.</li></ol>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script src="js/dashboard.js"></script>
+</body>
+</html>
